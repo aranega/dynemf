@@ -1,8 +1,8 @@
 # DynamicEMF
 
-This small library is designed to help you quickly prototype EMF applications
-using EMF dynamic instances. This library provides wrappers around EMF basic
-concepts.
+This small library (only 3 dependencies) is designed to help you quickly prototype
+EMF applications using EMF dynamic instances. This library provides wrappers around
+EMF basic concepts.
 
 ## EMF dynamic instances
 
@@ -21,4 +21,37 @@ instances and hide a little bit these layers.
 
 ## Examples
 
-  // TODO
+[source, java]
+.Registering a metamodel (contained in an .ecore file) and loading a model
+----
+// Register the metamodel
+ResourceSetWrapper rset = rset().register("src/test/resources/metamodels/simple.ecore");
+
+// Load an existing model that conforms to the previously loaded metamodel
+ResourceWrapper r = rset.open("src/test/resources/models/01.xmi");
+
+// Display its root
+System.out.println(r.root());
+----
+
+[source, java]
+.Registering a metamodel, getting the metamodel and creating instances.
+----
+// Register the metamodel
+ResourceSetWrapper rset = rset().register("src/test/resources/metamodels/simple.ecore");
+
+// Get the metamodel using its nsURI
+EPackageWrapper mm = rset.ePackage("http://DynEMF/simple/1.0");
+
+// Create an A instance from this metamodel and sets this feature "name" to "test"
+EObjectWrapper<EObject> a = mm.create("A").set("name", "test");
+
+// Create a resource to carry the created elements
+ResourceWrapper r = rset.creates("target/gen/model01.xmi").add(a).save();
+
+// Add a new instance to "a"
+a.add("a", mm.create("A"));
+
+// Save the model into another file
+r.saveAs("target/gen/model02.xmi");
+----
