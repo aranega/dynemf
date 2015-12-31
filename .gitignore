@@ -1,7 +1,9 @@
 *.class
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+# Eclipse/Maven build directory #
+bin/
+target/
+build.properties
 
 # Package Files #
 *.jar
