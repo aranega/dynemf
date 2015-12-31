@@ -4,6 +4,9 @@
 bin/
 target/
 build.properties
+.classpath
+.project
+.settings/
 
 # Package Files #
 *.jar
