@@ -1,0 +1,24 @@
+# DynamicEMF
+
+This small library is designed to help you quickly prototype EMF applications
+using EMF dynamic instances. This library provides wrappers around EMF basic
+concepts.
+
+## EMF dynamic instances
+
+EMF is a powerful framework for metamodels/models handling. It provides a many
+facilities to create/build applications using metamodels and models. A strong
+feature of EMF is this ability to deal with dynamic instances, _i.e._ manipulating
+model instances without generating the Java code derived from a metamodel. Using
+dynamic instances, you can quickly messing around with models and prototyping
+stuffs before going to the EMF metamodel code generation process.
+
+Unfortunately, this feature require advanced skills to deal with. Moreover,
+for the new user, the ResourceSet/Resource layer along with the metamodel
+registering/generation, Eclipse plugins... can be a very difficult to tame. This
+little library as vocation of providing various facilities to handle dynamic
+instances and hide a little bit these layers.
+
+## Examples
+
+  // TODO
