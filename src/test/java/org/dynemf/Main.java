@@ -19,7 +19,7 @@ public class Main {
 
 		EPackageWrapper simplemm = rset.ePackage("http://DynEMF/simple/1.0");
 
-		ResourceWrapper r = rset.create(URI.createURI("src/test/resources/models/gen/gen01.xmi"));
+		ResourceWrapper r = rset.create(URI.createURI("target/gen/gen01.xmi"));
 		System.out.println(r.save());
 
 		r.add(simplemm.create("A").set("name", "test").add("a", simplemm.create("A").set("name", "innerA")))
