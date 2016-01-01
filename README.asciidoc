@@ -55,3 +55,7 @@ a.add("a", mm.create("A"));
 // Save the model into another file
 r.saveAs("target/gen/model02.xmi");
 ----
+
+## License
+
+MIT License - see the LICENSE file in the source distribution
