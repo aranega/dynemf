@@ -2,7 +2,7 @@
 
 This small library (only 3 dependencies) is designed to help you quickly prototype
 EMF applications using EMF dynamic instances. This library provides wrappers around
-EMF basic concepts.
+EMF basic concepts. To sum up, this lib is here to ease the use of Dynamic EMF.
 
 ## EMF dynamic instances
 
