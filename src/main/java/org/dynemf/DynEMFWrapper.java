@@ -14,31 +14,32 @@ package org.dynemf;
  */
 public abstract class DynEMFWrapper<T> {
 	protected T obj;
-	
+
 	DynEMFWrapper(T obj) {
 		this.obj = obj;
 	}
 
 	/**
 	 * Returns the wrapped object.
+	 * 
 	 * @return The wrapped object.
 	 */
 	public T result() {
 		return this.obj;
 	}
-	
+
 	@Override
 	public boolean equals(Object other) {
 		if (other instanceof DynEMFWrapper) {
-			return obj.equals(((DynEMFWrapper<?>)other).result());
+			return obj.equals(((DynEMFWrapper<?>) other).result());
 		} else {
 			return obj.equals(other);
 		}
 	}
-	
+
 	@Override
 	public int hashCode() {
 		return obj.hashCode();
 	}
-	
+
 }

@@ -1,4 +1,4 @@
-# DynamicEMF
+# DynEMF
 
 This small library (only 3 dependencies) is designed to help you quickly prototype
 EMF applications using EMF dynamic instances. This library provides wrappers around
