@@ -196,6 +196,17 @@ public class ResourceWrapper extends DynEMFWrapper<Resource> {
 		return this;
 	}
 
+	/**
+	 * Clears the wrapped {@link Resource} (<i>i.e</i>: remove all of its
+	 * roots).
+	 * 
+	 * @return this instance of ResourceWrapper
+	 */
+	public ResourceWrapper clear() {
+		result().getContents().clear();
+		return this;
+	}
+
 	/*
 	 * Static constructors
 	 */

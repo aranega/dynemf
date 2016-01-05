@@ -56,6 +56,13 @@ a.add("a", mm.create("A"));
 r.saveAs("target/gen/model02.xmi");
 ----
 
+[source, java]
+.From an existing and well parametered 'rset' (see previous examples), creates two binary files.
+----
+ResourceWrapper r2 = rset.create("target/A.bin").add(mm.create("A").set("name", "testA")).save();
+r2.clear().add(simplemm.create("A").set("name", "testB")).saveAs("target/B.bin");
+----
+
 ## License
 
 MIT License - see the LICENSE file in the source distribution

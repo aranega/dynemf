@@ -42,5 +42,9 @@ public class Main {
 		r.saveAs("target/gen/gen05.xmi");
 
 		// rset.register(SimplePackage.eNS_URI, SimplePackage.eINSTANCE);
+
+		ResourceWrapper r2 = rset.create("target/A.bin").add(simplemm.create("A").set("name", "toto")).save();
+		r2.clear().add(simplemm.create("A").set("name", "toto")).saveAs("target/B.bin");
+
 	}
 }
