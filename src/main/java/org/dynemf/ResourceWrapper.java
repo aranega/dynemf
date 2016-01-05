@@ -9,6 +9,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.URI;
@@ -49,7 +51,30 @@ public class ResourceWrapper extends DynEMFWrapper<Resource> {
 	 * @throws IOException if an exception occurred during the saving operation.
 	 */
 	public ResourceWrapper save() throws IOException {
-		return save(null);
+		return save(new HashMap<>());
+	}
+
+	/**
+	 * Saves the wrapped resource in an OutputStream with dedicated options.
+	 * 
+	 * @param stream the stream where the Resource will be saved
+	 * @return this instance of ResourceWrapper
+	 * @throws IOException if an exception occurred during the saving operation.
+	 */
+	public ResourceWrapper save(OutputStream stream, Map<?, ?> options) throws IOException {
+		result().save(stream, options);
+		return this;
+	}
+
+	/**
+	 * Saves the wrapped resource in an OutputStream with dedicated options.
+	 * 
+	 * @param stream the stream where the Resource will be saved
+	 * @return this instance of ResourceWrapper
+	 * @throws IOException if an exception occurred during the saving operation.
+	 */
+	public ResourceWrapper save(OutputStream stream) throws IOException {
+		return save(stream, new HashMap<>());
 	}
 
 	/**
@@ -243,5 +268,15 @@ public class ResourceWrapper extends DynEMFWrapper<Resource> {
 		}
 		r.load(null);
 		return new ResourceWrapper(r);
+	}
+
+	/**
+	 * Wraps an existing {@link Resource}.
+	 * 
+	 * @param resource the resource to wrap
+	 * @return a new ResourceWrapper instance
+	 */
+	public static ResourceWrapper use(Resource resource) {
+		return new ResourceWrapper(resource);
 	}
 }

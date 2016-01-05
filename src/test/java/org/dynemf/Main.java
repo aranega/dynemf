@@ -2,12 +2,15 @@ package org.dynemf;
 
 import static org.dynemf.EPackageWrapper.ePackage;
 import static org.dynemf.ResourceSetWrapper.rset;
+import static org.dynemf.ResourceWrapper.use;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EcorePackage;
+import org.eclipse.emf.ecore.resource.impl.BinaryResourceImpl;
 
 public class Main {
 
@@ -43,8 +46,27 @@ public class Main {
 
 		// rset.register(SimplePackage.eNS_URI, SimplePackage.eINSTANCE);
 
-		ResourceWrapper r2 = rset.create("target/A.bin").add(simplemm.create("A").set("name", "toto")).save();
-		r2.clear().add(simplemm.create("A").set("name", "toto")).saveAs("target/B.bin");
+		ByteArrayOutputStream b1 = new ByteArrayOutputStream();
+		// ResourceWrapper r2 =
+		// rset.create("target/A.bin").add(simplemm.create("A").set("name",
+		// "testA")).save(b1);
 
+		ByteArrayOutputStream b2 = new ByteArrayOutputStream();
+		// r2.clear().add(simplemm.create("A").set("name", "testB"),
+		// simplemm.create("A").set("name", "testA")).save(b2);
+
+		BinaryResourceImpl bin1 = new BinaryResourceImpl();
+		ResourceWrapper r3 = use(bin1);
+		r3.add(simplemm.create("A").set("name", "testA")).save(b1);
+
+		r3.clear().add(simplemm.create("A").set("name", "testB"), simplemm.create("A").set("name", "testA")).save(b2);
+
+		for (byte b : b1.toByteArray()) {
+			System.out.print(" " + b);
+		}
+		System.out.println();
+		for (byte b : b2.toByteArray()) {
+			System.out.print(" " + b);
+		}
 	}
 }
