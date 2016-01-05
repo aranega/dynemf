@@ -42,4 +42,8 @@ public abstract class DynEMFWrapper<T> {
 		return obj.hashCode();
 	}
 
+	@Override
+	public String toString() {
+		return getClass().getSimpleName() + "@" + Integer.toHexString(hashCode()) + " {" + obj + "}";
+	}
 }

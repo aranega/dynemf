@@ -52,8 +52,7 @@ public class Main {
 		// "testA")).save(b1);
 
 		ByteArrayOutputStream b2 = new ByteArrayOutputStream();
-		// r2.clear().add(simplemm.create("A").set("name", "testB"),
-		// simplemm.create("A").set("name", "testA")).save(b2);
+//		r2.clear().add(simplemm.create("A").set("name", "testB"), simplemm.create("A").set("name", "testA")).save(b2);
 
 		BinaryResourceImpl bin1 = new BinaryResourceImpl();
 		ResourceWrapper r3 = use(bin1);
