@@ -63,6 +63,17 @@ ResourceWrapper r2 = rset.create("target/A.bin").add(mm.create("A").set("name", 
 r2.clear().add(simplemm.create("A").set("name", "testB")).saveAs("target/B.bin");
 ----
 
+Also, you don't have to wrap averything. You can use the same API with existing EObjects.
+[source, java]
+.Referencing an existing EObject
+----
+EObject eobj1 = ....; // My EObject not wrapped
+EObject eobj2 = ...; // My second one
+m.create("A").add("a", eobj1, eobj2);
+ResourceWrapper r2 = rset.create("target/A.bin").add(mm.create("A").set("name", "testA")).save();
+r2.clear().add(simplemm.create("A").set("name", "testB")).saveAs("target/B.bin");
+----
+
 ## License
 
 MIT License - see the LICENSE file in the source distribution
